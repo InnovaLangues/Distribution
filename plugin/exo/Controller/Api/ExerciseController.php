@@ -21,6 +21,7 @@ use UJM\ExoBundle\Services\classes\PaperService;
  * Exercise Controller.
  *
  * @EXT\Route(
+ *     "/exercises",
  *     requirements={"id"="\d+"},
  *     options={"expose"=true},
  *     defaults={"_format": "json"}
@@ -73,7 +74,7 @@ class ExerciseController
      * Exports the full representation of an exercise (including solutions)
      * in a JSON format.
      *
-     * @EXT\Route("/exercises/{id}", name="exercise_get")
+     * @EXT\Route("/{id}", name="exercise_get")
      *
      * @param Exercise $exercise
      *
@@ -90,7 +91,7 @@ class ExerciseController
      * Exports the minimal representation of an exercise (id + meta)
      * in a JSON format.
      *
-     * @EXT\Route("/exercises/{id}/minimal", name="exercise_get_minimal")
+     * @EXT\Route("/{id}/minimal", name="exercise_get_minimal")
      *
      * @param Exercise $exercise
      *
@@ -107,7 +108,7 @@ class ExerciseController
      * Opens an exercise, creating a new paper or re-using an unfinished one.
      * Also check that max attempts are not reached if needed.
      *
-     * @EXT\Route("/exercises/{id}/attempts", name="exercise_new_attempt")
+     * @EXT\Route("/{id}/attempts", name="exercise_new_attempt")
      * @EXT\Method("POST")
      * @EXT\ParamConverter("user", converter="current_user", options={"allowAnonymous"=true})
      *
@@ -136,7 +137,7 @@ class ExerciseController
     /**
      * Returns all the papers associated with an exercise for the current user.
      *
-     * @EXT\Route("/exercises/{id}/papers", name="exercise_papers")
+     * @EXT\Route("/{id}/papers", name="exercise_papers")
      * @EXT\ParamConverter("user", converter="current_user")
      *
      * @param User     $user
@@ -158,7 +159,7 @@ class ExerciseController
     /**
      * Exports papers into a CSV format.
      *
-     * @EXT\Route("/exercises/{id}/papers/export", name="exercise_papers_export")
+     * @EXT\Route("/{id}/papers/export", name="exercise_papers_export")
      *
      * @param Exercise $exercise
      *
