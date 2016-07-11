@@ -187,7 +187,7 @@ class ExerciseListener
     public function onDisplayDesktop(DisplayToolEvent $event)
     {
         $subRequest = $this->container->get('request')->duplicate([], null, [
-            '_controller' => 'UJMExoBundle:Question:index',
+            '_controller' => 'UJMExoBundle:Bank:open',
         ]);
 
         $response = $this->container->get('http_kernel')->handle($subRequest, HttpKernelInterface::SUB_REQUEST);

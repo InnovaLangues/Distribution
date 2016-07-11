@@ -354,7 +354,7 @@ select_type: select the type of the Exercise
 selection: => To answer, use drag and drop.
 self: You can't shared this question with yourself
 shape: Shape
-share: Share
+share: Share selected questions
 shared_by: Shared by
 shared_questions: Questions which was shared with me
 shared_user: Share of questions

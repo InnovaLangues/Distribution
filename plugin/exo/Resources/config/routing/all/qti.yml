@@ -2,11 +2,13 @@
 ujm_qti_import_question:
     pattern:  /importQuestion
     defaults: { _controller: UJMExoBundle:Qti:importQuestion }
+    options:  { expose: true }
 
 #you must pass the id of the exercice for this route, it's for import in exercice
 ujm_qti_import_form:
     pattern:  /import/form
     defaults: { _controller: UJMExoBundle:Qti:importForm }
+    options:  { expose: true }
 
 #you must pass the id of the exercice for this route, it's for import in exercice
 ujm_qti_export_exercise_questions:

@@ -39,6 +39,10 @@ ujm_exercise:
     resource: "@UJMExoBundle/Controller/ExerciseController.php"
     type: annotation
 
+ujm_bank:
+    resource: "@UJMExoBundle/Controller/BankController.php"
+    type: annotation
+
 ujm_api_exercise:
     resource: "@UJMExoBundle/Controller/Api/ExerciseController.php"
     type: annotation

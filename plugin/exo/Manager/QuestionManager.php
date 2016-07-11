@@ -2,6 +2,7 @@
 
 namespace UJM\ExoBundle\Manager;
 
+use Claroline\CoreBundle\Entity\User;
 use Claroline\CoreBundle\Manager\ResourceManager;
 use Doctrine\Common\Persistence\ObjectManager;
 use JMS\DiExtraBundle\Annotation as DI;
@@ -162,6 +163,35 @@ class QuestionManager
         $handler->convertInteractionDetails($question, $data, $withSolution, $forPaperList);
 
         return $data;
+    }
+
+    /**
+     * Exports the Questions of a User (own + shared).
+     *
+     * @param User $user
+     *
+     * @return array
+     */
+    public function exportUserQuestions(User $user)
+    {
+        // Get the questions created by the current User
+        $owned = [];
+        $ownedQuestions = $this->om->getRepository('UJMExoBundle:Question')->findByUser($user);
+        foreach ($ownedQuestions as $question) {
+            $owned[] = $this->exportQuestion($question);
+        }
+
+        // Get the questions shared with the current User
+        $shared = [];
+        $sharedQuestions = $this->om->getRepository('UJMExoBundle:Share')->findByUser($user);
+        foreach ($sharedQuestions as $question) {
+            $shared[] = $this->exportQuestion($question);
+        }
+
+        return [
+            'owned' => $owned,
+            'shared' => $shared,
+        ];
     }
 
     /**
