@@ -11,7 +11,7 @@
                 replace: true,
                 controller: ResourcesPrimaryShowCtrl,
                 controllerAs: 'resourcesPrimaryShowCtrl',
-                template: '<iframe id="embeddedActivity" style="width: 100%; min-height: {{ resourcesPrimaryShowCtrl.height }}px;" data-ng-src="{{ resourcesPrimaryShowCtrl.resourceUrl.url }}" allowfullscreen></iframe>',
+                template: '<iframe id="embeddedActivity" data-ng-hide="resourcesPrimaryShowCtrl.resourceUrl.url == null" style="width: 100%; min-height: {{ resourcesPrimaryShowCtrl.height }}px;" data-ng-src="{{ resourcesPrimaryShowCtrl.resourceUrl.url }}" allowfullscreen></iframe>',
                 scope: {
                     resources : '=', // Resources of the Step
                     height    : '='  // Min height for Resource display
